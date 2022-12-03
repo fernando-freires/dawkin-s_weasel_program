@@ -3,8 +3,8 @@ import java.util.Random;
 public class WeaselProgram {
 
     public static void main(String[] args) {
-        int i, j, counter;
         int SIZE = 28, generationCounter = 0, bestPontuation = -1;
+        int i, j, points;
 
         char[] sequence = new char[SIZE];
         char[] helper;
@@ -47,14 +47,14 @@ public class WeaselProgram {
             }
 
             for (i = 0; i < 100; i++) {
-                counter = 0;
+                points = 0;
                 for (j = 0; j < SIZE; j++) {
                     if (copies[i][j] == textTarget[j]) {
-                        counter++;
+                        points++;
                     }
 
-                    if (counter > bestPontuation) {
-                        bestPontuation = counter;
+                    if (points > bestPontuation) {
+                        bestPontuation = points;
                         sequence = copies[i].clone();
                     }
                 }
