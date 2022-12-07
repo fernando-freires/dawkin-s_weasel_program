@@ -13,8 +13,9 @@ public class WeaselProgram {
         while (melhorPontuacao != utils.getTextGoal().length()) {
             double variacao = utils.alterandoString();
 
-            System.out.println(geracao + ": " + utils.getCurrentText() + ", pontos: " +
-                    utils.pontuation(utils.getCurrentText()));
+            System.out.println(
+                    "Generation: " + geracao + " " + utils.getCurrentText() + " | Word Score: "
+                            + utils.pontuation(utils.getCurrentText()));
 
             String melhorString = null;
 
@@ -43,7 +44,9 @@ public class WeaselProgram {
             }
             geracao++;
         }
-        System.out.println(utils.getCurrentText() + ", geração: " + geracao + ", pontos: " +
-                utils.pontuation(utils.getCurrentText()));
+
+        System.out.println(
+                "Generation: " + geracao + " " + utils.getCurrentText() + " | Word Score: "
+                        + utils.pontuation(utils.getCurrentText()));
     }
 }
