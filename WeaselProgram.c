@@ -20,11 +20,15 @@ int randomIntGenerator(int max)
 
 char randomCharGenerator()
 {
+    char caract[] = {' ', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+        'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
+        'U', 'V', 'W', 'X', 'Y', 'Z'};
+
     int c = randomIntGenerator(26);
     if (c == 0)
         return ' ';
     else
-        return (char)(c + 64);
+        return caract[c];
 }
 
 int firstScore(char *current, char *phrase)
@@ -123,6 +127,7 @@ void weaselProgram(char *phrase)
 
 int main(void)
 {
+    //METHINKS IT IS LIKE A WEASEL
     char phrase[28];
     printf("Type a 28 characters string (only uppercase and spaces):\n");
     fgets(phrase, sizeof(phrase), stdin);

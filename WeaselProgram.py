@@ -1,10 +1,12 @@
 import random
-import string
 
+
+GENERATIONS = 100
+MPROB = 5
 
 def gerandoCaracteres():
-    # Escolhe um caractere ascii ABCDEFGHIJKLMNOPQRSTUVWXYZ
-    return random.choice(string.ascii_uppercase + " ")
+    caract = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    return random.choice(caract + " ")
 
 
 def gerandoStrings(tamanho):
@@ -27,7 +29,7 @@ def comparandoStrings(string, fraseOriginal):
 def AlterandoString(string):
     string = list(string)  # converte string para lista
     for i in range(len(string)):
-        if random.randint(1, 100) <= 5:  # se bater 5% (probabilidade)
+        if random.randint(1, GENERATIONS) <= MPROB:  # se bater 5% (probabilidade)
             # gera outro caractere na posicao que bateu
             string[i] = gerandoCaracteres()
 
@@ -46,7 +48,7 @@ def weaselProgram(fraseOriginal):
         lista_scores = list()
         score_maximo = (0, 0)  # guarda a posicao e o score
 
-        for i in range(100):
+        for i in range(GENERATIONS):
             # fazer 100 copias da string alterada e
             # guardar na lista lista_strings
             lista_strings.append(AlterandoString(string_aleatoria))
@@ -63,10 +65,9 @@ def weaselProgram(fraseOriginal):
             score_maximo[0]
         ]  # a nova string eh a que teve a maior pontuacao
 
-        print(
-            f"""Generation {geracao}: {string_aleatoria}
-            | Word Score: {score_maximo[1]}"""
-        )
+        print(f"Generation {geracao}: {string_aleatoria}", end='')
+        print(f"| Word Score: {score_maximo[1]}")
+
         geracao += 1
 
 
