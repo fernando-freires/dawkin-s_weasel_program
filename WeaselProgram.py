@@ -28,7 +28,7 @@ def AlterandoString (string):
   return ''.join(string) # retorna a lista em formato de string
 
 
-def main (fraseOriginal):
+def weaselProgram(fraseOriginal):
   geracao = 1
   achou = False 
   string_aleatoria = gerandoStrings(len(fraseOriginal)) # gera a string com o tamanho da frase
@@ -50,9 +50,12 @@ def main (fraseOriginal):
     achou = score_maximo[1] == len(fraseOriginal)
     string_aleatoria = lista_strings[score_maximo[0]] # a nova string eh a que teve a maior pontuacao
 
-    print("Geracao: {} \nFrase: {} \nPontuacao: {} \n\n".format(geracao, string_aleatoria, score_maximo[1]))
+    print(f"Generation {geracao}: {string_aleatoria} | Word Score: {score_maximo[1]}")
     geracao += 1
 
+if __name__ == "__main__":
 
-frase = 'METHINKS IT IS LIKE A WEASEL'
-main(frase)
+  # METHINKS IT IS LIKE A WEASEL
+  print("Type a 28 characters string (only uppercase and spaces):")
+  frase = input()
+  weaselProgram(frase)

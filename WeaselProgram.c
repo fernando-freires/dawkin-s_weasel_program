@@ -124,9 +124,9 @@ void weaselProgram(char *phrase)
 
 int main(void)
 {
-    // METHINKS IT IS LIKE A WEASEL
-    char *phrase;
+    char phrase[28];
     printf("Type a 28 characters string (only uppercase and spaces):\n");
+    fgets(phrase, sizeof(phrase), stdin);
     weaselProgram(phrase);
 
     return 1;
