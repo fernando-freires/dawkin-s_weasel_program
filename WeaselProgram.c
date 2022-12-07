@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 #define GENERATIONS 100
-#define MUTATEPROB 0.05
+#define MPROB 0.05
 
 float randomFloatGenerator()
 {
@@ -87,7 +87,7 @@ void weaselProgram(char *phrase)
             for (i = 0; i < strlen(phrase); i++)
             {
                 // Mutate or just copy.
-                if (randomFloatGenerator() < MUTATEPROB)
+                if (randomFloatGenerator() < MPROB)
                 {
                     generations[n][i] = randomCharGenerator();
                 }
