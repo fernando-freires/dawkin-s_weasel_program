@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
 import java.util.Random;
 import java.util.Scanner;
-
 
 public class WeaselProgram {
     public static void main(String[] args) {
@@ -52,7 +50,8 @@ public class WeaselProgram {
 
                 copies[i] = helper;
             }
-
+            
+            // Increasing the points
             for (i = 0; i < 100; i++) {
                 points = 0;
                 for (j = 0; j < SIZE; j++) {
@@ -67,9 +66,9 @@ public class WeaselProgram {
                 }
             }
 
-            //System.out.println("Generation: %d".format(generationCounter, args) + generationCounter + " " + sequence);
-            System.out.print(String.format("Generation: %d ", generationCounter));
-            System.out.println(sequence);
+            System.out.println(
+                    "Generation: " + generationCounter + " " + String.valueOf(sequence) + " | Word Score: "
+                            + bestPontuation);
         }
     }
 }
