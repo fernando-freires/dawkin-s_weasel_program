@@ -1,11 +1,11 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class WeaselProgram {
-
     public static void main(String[] args) {
+
         int SIZE = 28, generationCounter = 0, bestPontuation = -1;
         int i, j, points;
-
         char[] sequence = new char[SIZE];
         char[] helper;
         char[][] copies = new char[100][29];
@@ -15,7 +15,12 @@ public class WeaselProgram {
 
         Random random = new Random();
 
-        char[] textTarget = "METHINKS IT IS LIKE A WEASEL".toCharArray();
+        // METHINKS IT IS LIKE A WEASEL
+
+        System.out.println("Type a 28 characters string (only uppercase and spaces):");
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        char[] textTarget = str.toCharArray();
 
         // Generating a random sequence of 28 characters
         for (int count = 0; count < SIZE; count++) {
@@ -45,7 +50,8 @@ public class WeaselProgram {
 
                 copies[i] = helper;
             }
-
+            
+            // Increasing the points
             for (i = 0; i < 100; i++) {
                 points = 0;
                 for (j = 0; j < SIZE; j++) {
@@ -60,8 +66,9 @@ public class WeaselProgram {
                 }
             }
 
-            System.out.print("Generation  " + generationCounter + " ");
-            System.out.println(sequence);
+            System.out.println(
+                    "Generation: " + generationCounter + " " + String.valueOf(sequence) + " | Word Score: "
+                            + bestPontuation);
         }
     }
 }
