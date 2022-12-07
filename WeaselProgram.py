@@ -4,6 +4,7 @@ import random
 GENERATIONS = 100
 MPROB = 5
 
+
 def gerandoCaracteres():
     caract = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     return random.choice(caract + " ")
@@ -29,7 +30,7 @@ def comparandoStrings(string, fraseOriginal):
 def AlterandoString(string):
     string = list(string)  # converte string para lista
     for i in range(len(string)):
-        if random.randint(1, GENERATIONS) <= MPROB:  # se bater 5% (probabilidade)
+        if random.randint(1, GENERATIONS) <= MPROB:
             # gera outro caractere na posicao que bateu
             string[i] = gerandoCaracteres()
 
