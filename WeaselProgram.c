@@ -31,7 +31,6 @@ int firstScore(char *current, char *phrase)
 {
     int startscore = 0;
 
-    // Work out the score of generation zero.
     for (int i = 0; i < strlen(phrase); i++)
     {
         if (current[i] == phrase[i])
@@ -57,14 +56,14 @@ void weaselProgram(char *phrase)
     current = malloc(strlen(phrase) + 1);
     assert(current != NULL);
 
-    // Initialise the generations strings.
+    // Inicializa as strings de gerações
     for (n = 0; n < GENERATIONS; n++)
     {
         generations[n] = malloc(strlen(phrase) + 1);
         assert(generations[n] != NULL);
     }
 
-    // Randomise the starting string.
+    // Cria primeira string randomicamente
     for (i = 0; i < strlen(phrase); i++)
     {
         current[i] = randomCharGenerator();
@@ -79,14 +78,14 @@ void weaselProgram(char *phrase)
     while (1)
     {
         currentgen++;
-        // Do for each new string...
+        // Para cada string
         for (n = 0; n < GENERATIONS; n++)
         {
             score[n] = 0;
-            // Do for each letter...
+            // Para cada palavra
             for (i = 0; i < strlen(phrase); i++)
             {
-                // Mutate or just copy.
+                // Ou muda ou copia
                 if (randomFloatGenerator() < MPROB)
                 {
                     generations[n][i] = randomCharGenerator();
@@ -96,7 +95,7 @@ void weaselProgram(char *phrase)
                     generations[n][i] = current[i];
                 }
 
-                // Keep score.
+                // Salva o score
                 if (phrase[i] == generations[n][i])
                 {
                     score[n]++;
@@ -106,7 +105,7 @@ void weaselProgram(char *phrase)
         }
 
         highestscorer = 0;
-        // Find highest scoring new string.
+        // Encontra o melhor score nas novas strings
         for (n = 1; n < GENERATIONS; n++)
         {
             if (score[n] > score[highestscorer])
